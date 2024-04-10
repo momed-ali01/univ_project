@@ -1,0 +1,21 @@
+/**************************/
+/* ******* FOOTER ******* */
+/**************************/
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  padding: 2rem 4%;
+  color: white;
+  background-color: #d1721f;
+}
+
+footer a {
+  color: #000;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

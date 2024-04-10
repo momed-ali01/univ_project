@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Always include this line of code!!! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <title>SpaceClubs</title>
+    <link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/components/modal.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="#">SpaceLogo</a>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a class="main-nav-link" href="index.html">Home</a></li>
+          <li><a class="main-nav-link" href="about.html">About</a></li>
+          <li><a class="main-nav-link" href="#">Testimonials</a></li>
+          <li><a class="main-nav-link" href="#">Contact us</a></li>
+        </ul>
+      </nav>
+      <div class="cta-buttons">
+        <a class="btn btn--form" href="#">Register</a>
+        <a class="btn btn--full btn--show-modal" href="#">Connexion</a>
+      </div>
+    </header>
+
+    <main class="section-hero">
+      <div class="hero">
+        <div class="hero-text-box">
+          <h1 class="heading-primary">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </h1>
+          <p class="hero-description">
+            Découvrez une communauté vibrante d'opportunités ! Explorez nos
+            clubs dynamiques et trouvez celui qui éveillera votre passion.
+            Rejoignez-nous pour une expérience universitaire inoubliable !
+          </p>
+          <a class="btn btn--full" href="#">Learn more</a>
+        </div>
+        <div class="hero-img-box">
+          <img
+            src="img/undraw_team_work_k-80-m.svg"
+            class="hero-img"
+            alt="team work" />
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Made with 🧡 by
+        <a href="mailto:demahomali01@gmail.com" target="_blank">Mohamed Ali</a>
+      </p>
+      <p>Copyrights&copy; <span id="year"></span> | Tous droits réservés.</p>
+    </footer>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Connect as an <span class="highlight">Admin</span>
+      </h2>
+      <form class="modal__form">
+        <label for="email">Email </label>
+        <input type="email" id="email" name="email" />
+        <label for="password">Password </label>
+        <input type="password" id="password" name="password" />
+
+        <button class="btn--login">Login</button>
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
