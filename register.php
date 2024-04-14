@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Always include this line of code!!! -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
-    <title>SpaceClubs</title>
-    <link rel="stylesheet" href="css/general.css" />
-    <link rel="stylesheet" href="css/components/header.css" />
-    <link rel="stylesheet" href="css/components/footer.css" />
-    <link rel="stylesheet" href="css/components/modal.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+      <!-- Include the SweetAlert2 CSS and JavaScript files -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+      <title>SpaceClubs</title>
+      <link rel="stylesheet" href="css/general.css" />
+      <link rel="stylesheet" href="css/components/header.css" />
+      <link rel="stylesheet" href="css/components/footer.css" />
+      <link rel="stylesheet" href="css/components/modal.css" />
+      <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <header class="header">
@@ -41,28 +41,29 @@
     <main class="section-cta">
       <div class="cta">
         <div class="cta-text-box">
-          <h2 class="heading-secondary">Get your first meal for free!</h2>
+          <h2 class="heading-secondary">Register to a club now!</h2>
           <!-- <p class="cta-text">
               Healthy, tasty and hassle-free meals are waiting for you. Start
               eating well today. You can cancel or pause anytime. And the first
               meal is on us!
             </p> -->
-
-          <form class="cta-form" action="#">
+          <form class="cta-form" action="register.php" method="post">
             <div>
               <label for="full-name">Full Name</label>
               <input
-                id="full-name"
                 type="text"
-                placeholder="John Smith"
+                id="full-name"
+                name="full-name"
+                placeholder="James Bond"
                 required />
             </div>
 
             <div>
               <label for="email">Email address</label>
               <input
-                id="email"
                 type="email"
+                id="email"
+                name="email"
                 placeholder="me@example.com"
                 required />
             </div>
@@ -70,17 +71,19 @@
             <div>
               <label for="password">Password</label>
               <input
-                id="password"
                 type="password"
-                placeholder="John Smith"
+                id="password"
+                name="password"
+                placeholder="James Bond"
                 required />
             </div>
 
             <div>
               <label for="filiere">Filière</label>
               <input
-                id="text"
                 type="text"
+                id="filiere"
+                name="filiere"
                 placeholder="Informatique"
                 required />
             </div>
@@ -89,16 +92,16 @@
               <label for="select-where"
                 >Which club do you want to integrate?</label
               >
-              <select id="select-where" required>
+              <select id="select-where" name="club" required>
                 <option value="">Please choose one option:</option>
-                <option value="youtube">Debate Club</option>
-                <option value="podcast">Theatre Club</option>
-                <option value="others">Chess Club</option>
-                <option value="friends">Code for Geeks Club</option>
+                <option value="Debate Club">Debate Club</option>
+                <option value="Theater Club">Theater Club</option>
+                <option value="Chess Club">Chess Club</option>
+                <option value="Code for Geeks Club">Code for Geeks Club</option>
               </select>
             </div>
 
-            <button class="btn btn--form">Sign up now</button>
+            <input type="submit" class="btn btn--form" name="signup" value="Sign up now">
 
             <!-- <input type="checkbox" />
                 <input type="number" /> -->
@@ -124,16 +127,56 @@
       <h2 class="modal__header">
         Connect as an <span class="highlight">Admin</span>
       </h2>
-      <form class="modal__form">
+      <form action="" method="get" class="modal__form">
         <label for="email">Email </label>
         <input type="email" id="email" name="email" />
         <label for="password">Password </label>
         <input type="password" id="password" name="password" />
 
-        <button class="btn--login">Login</button>
+        <input type="submit" class="btn--login" name="login" value="Login">
       </form>
     </div>
     <div class="overlay hidden"></div>
     <script src="js/script.js"></script>
   </body>
 </html>
+<?php
+
+// Create connexion
+$conn = mysqli_connect('localhost','root','', 'gestion_udclubs');
+
+if (isset($_POST['signup'])) {
+  // Donnée à saisir
+  $fullName = $_POST['full-name'];
+  $email = strtolower($_POST['email']);
+  $password = $_POST['password'];
+  $filiere = strtoupper($_POST['filiere']);
+  $Club = $_POST['club'];
+
+  try{
+    $query = "INSERT INTO client VALUES('','$fullName','$email','$password','$filiere','$Club')";
+
+    if (mysqli_query($conn, $query)) {
+      // Display a success pop-up message
+      echo '<script>';
+      echo 'Swal.fire("Success!", "Registration successful!", "success");';
+      echo '</script>';
+  } else {
+      echo "Erreur lors de l'insertion : " . mysqli_error($query);
+  }
+
+  } catch(mysqli_sql_exception) {
+    echo '<script>';
+    echo 'Swal.fire("Error!", "Registration failed!", "error");';
+    // echo 'Swal.fire({
+    //         icon: "error",
+    //         title: "Oops...",
+    //         text: "Something went wrong!"
+    //         text: "Registration failed!"
+    //       });';
+    echo '</script>';
+    // echo 'Error : ' . mysqli_error;
+  }
+}
+mysqli_close($conn);
+?>
