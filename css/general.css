@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-html:not(.swal2-height-auto, .swal2-shown) {
+html {
   font-size: 62.5%;
 }
 
@@ -83,12 +83,12 @@ a {
 .btn--form {
   background-color: #45260a !important;
   color: #fdf2e9 !important;
-  align-self: end !important;
+  align-self: end;
   padding: 1.2rem;
 }
 
 .btn--form:hover {
-  background-color: #45260acc;
+  background-color: #45260acc !important;
 }
 
 .btn--admin-client {

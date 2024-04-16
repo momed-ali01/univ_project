@@ -3,21 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Always include this line of code!!! -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
       <!-- Include the SweetAlert2 CSS and JavaScript files -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
       <title>SpaceClubs</title>
-      <link rel="stylesheet" href="css/general.css" />
-      <link rel="stylesheet" href="css/components/header.css" />
-      <link rel="stylesheet" href="css/components/footer.css" />
-      <link rel="stylesheet" href="css/components/modal.css" />
-      <link rel="stylesheet" href="css/styles.css" />
+      <link rel="stylesheet" href="./css/general.css" />
+      <link rel="stylesheet" href="./css/components/header.css" />
+      <link rel="stylesheet" href="./css/components/footer.css" />
+      <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <header class="header">
@@ -33,7 +35,7 @@
         </ul>
       </nav>
       <div class="cta-buttons">
-        <a class="btn btn--form" href="register.html">Register</a>
+        <a class="btn btn--form" href="register.php">Register</a>
         <a class="btn btn--full btn--show-modal" href="#">Connexion</a>
       </div>
     </header>
@@ -127,7 +129,7 @@
       <h2 class="modal__header">
         Connect as an <span class="highlight">Admin</span>
       </h2>
-      <form action="" method="get" class="modal__form">
+      <form class="modal__form" action="connexion_admin.php" method="get">
         <label for="email">Email </label>
         <input type="email" id="email" name="email" />
         <label for="password">Password </label>
@@ -141,12 +143,12 @@
   </body>
 </html>
 <?php
-
 // Create connexion
 $conn = mysqli_connect('localhost','root','', 'gestion_udclubs');
 
 if (isset($_POST['signup'])) {
-  // Donnée à saisir
+
+  // Data to insert to the db
   $fullName = $_POST['full-name'];
   $email = strtolower($_POST['email']);
   $password = $_POST['password'];
