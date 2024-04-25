@@ -9,8 +9,7 @@ body {
 /**************************/
 
 main.section-hero {
-  background-color: #fdf2e9;
-  padding: 4.8rem 0;
+  padding: 4.5rem 0;
 }
 
 .hero {
@@ -37,13 +36,8 @@ main.section-hero {
 /* **** CTA SECTION ***** */
 /**************************/
 
-.section-cta {
-  /* top / right / bottom / left */
-  /* padding: 9.6rem 0 12.8rem 0; */
-
-  /* top / horizontal / left */
-  /* padding: 4.8rem 0 12.8rem; */
-  padding: 4.8rem;
+main.section-cta {
+  padding: 1rem 4.8rem 2rem 4.8rem;
 }
 
 .cta {
@@ -67,12 +61,6 @@ main.section-hero {
   color: inherit;
   margin-bottom: 3.2rem;
 }
-
-/* .cta-text {
-  font-size: 1.8rem;
-  line-height: 1.8;
-  margin-bottom: 4.8rem;
-} */
 
 .cta-img-box {
   background-image: url("../img/undraw_exams_re_4ios.svg");
@@ -138,7 +126,7 @@ main.section-hero {
   padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
-  transition: all 0.1s;
+  transition: all 0.1s linear;
 }
 
 .modal__first {

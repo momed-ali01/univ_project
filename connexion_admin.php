@@ -3,7 +3,7 @@
 session_start();
 
 // Create connexion
-$conn = mysqli_connect('localhost','root','', 'gestion_udclubs') or die("Connexion to the db failed");
+$conn = mysqli_connect('localhost','root','', 'gestion_udclubs') or die("Connexion to the DB failed");
  
 // Data to retrieve from the db
 $email = strtolower($_GET['email']);
@@ -18,7 +18,7 @@ if (mysqli_num_rows($result) > 0) {
    $_SESSION['admin_id'] = $row['id_admin'];
   
   // Redirect to a logged-in page or do any further processing
-  header("Location: page_acceuil_admin.php");
+  header("Location: admin_page.php");
   exit();
 } else {
   echo "No user found with the given email";

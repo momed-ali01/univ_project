@@ -17,6 +17,10 @@ body {
   color: #555;
 }
 
+main {
+  background-color: #fdf2e9;
+}
+
 a {
   color: #555;
   border: none;
@@ -51,9 +55,9 @@ a {
   margin-bottom: 3.2rem;
 }
 
-.btn,
-.btn:link,
-.btn:visited {
+.buton,
+.buton:link,
+.buton:visited {
   display: inline-block;
 
   text-decoration: none;
@@ -68,30 +72,30 @@ a {
   transition: all 0.3s;
 }
 
-.btn--full,
-.btn--full:link,
-.btn--full:visited {
+.buton--full,
+.buton--full:link,
+.buton--full:visited {
   background-color: #e67e22;
   color: #fff;
 }
 
-.btn--full:hover,
-.btn--full:active {
+.buton--full:hover,
+.buton--full:active {
   background-color: #cf711f;
 }
 
-.btn--form {
+.buton--form {
   background-color: #45260a !important;
   color: #fdf2e9 !important;
   align-self: end;
   padding: 1.2rem;
 }
 
-.btn--form:hover {
+.buton--form:hover {
   background-color: #45260acc !important;
 }
 
-.btn--admin-client {
+.buton--admin-client {
   display: inline-block;
   background-color: #e67e22;
   /* background-color: var(--color-primary); */
