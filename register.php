@@ -34,8 +34,8 @@
       </ul>
     </nav>
     <div class="cta-buttons">
-      <a class="btn btn--form" href="register.php">Register</a>
-      <a class="btn btn--full btn--show-modal" href="#">Connexion</a>
+      <a class="buton buton--form" href="register.php">Register</a>
+      <button class="buton buton--full buton--show-modal">Connexion</button>
     </div>
   </header>
 
@@ -76,7 +76,7 @@
             </select>
           </div>
 
-          <input type="submit" class="btn btn--form" name="signup" value="Sign up now">
+          <input type="submit" class="buton buton--form" name="signup" value="Sign up now">
 
           <!-- <input type="checkbox" />
                 <input type="number" /> -->
@@ -96,7 +96,7 @@
   </footer>
 
   <div class="modal hidden">
-    <button class="btn--close-modal">&times;</button>
+    <button class="buton--close-modal">&times;</button>
     <h2 class="modal__header">
       Connect as an <span class="highlight">Admin</span>
     </h2>
@@ -106,16 +106,16 @@
       <label for="password">Password </label>
       <input type="password" id="password" name="password" />
 
-      <input type="submit" class="btn--login" name="login" value="Login">
+      <input type="submit" class="buton--login" name="login" value="Login">
     </form>
   </div>
   <div class="overlay hidden"></div>
-  <script src="js/script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
 <?php
-require('dbcon.php');
+$conn = mysqli_connect('localhost','root','', 'gestion_udclubs') or die("Connexion to the DB failed");
 if (isset($_POST['signup'])) {
 
   // Data to insert to the db
@@ -128,7 +128,7 @@ if (isset($_POST['signup'])) {
   try{
     $query = "INSERT INTO client VALUES ('','$fullName','$email','$password','$filiere','$club')";
 
-    if (mysqli_query($con, $query)) {
+    if (mysqli_query($conn, $query)) {
       // Display a success pop-up message
       echo '<script>';
       echo 'Swal.fire("Success!", "Registration successful!", "success");';
@@ -150,5 +150,5 @@ if (isset($_POST['signup'])) {
     // echo 'Error : ' . mysqli_error;
   }
 }
-mysqli_close($con);
+mysqli_close($conn);
 ?>

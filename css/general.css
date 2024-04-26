@@ -21,9 +21,14 @@ main {
   background-color: #fdf2e9;
 }
 
+a,
+button {
+  border: none;
+  outline: none;
+}
+
 a {
   color: #555;
-  border: none;
   cursor: pointer;
   text-decoration: none;
   font-family: inherit;

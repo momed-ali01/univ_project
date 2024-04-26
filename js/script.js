@@ -4,16 +4,16 @@ document.getElementById("year").innerHTML = currentYear;
 // Modal
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const btnOpenModal = document.querySelector(".btn--show-modal");
-const btnCloseModal = document.querySelector(".btn--close-modal");
+const btnOpenModal = document.querySelector(".buton--show-modal");
+const btnCloseModal = document.querySelector(".buton--close-modal");
 
-const openModal = e => {
+const openModal = (e) => {
   e.preventDefault();
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 
-const closeModal = e => {
+const closeModal = (e) => {
   e.preventDefault();
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
