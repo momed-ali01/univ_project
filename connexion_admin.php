@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) {
   header("Location: admin_page.php");
   exit();
 } else {
-  echo "No user found with the given email";
+  echo "<h2>Wrong email or password</h2>";
 }
 mysqli_close($conn);
 ?>

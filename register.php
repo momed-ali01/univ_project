@@ -34,8 +34,8 @@
       </ul>
     </nav>
     <div class="cta-buttons">
-      <a class="buton buton--form" href="register.php">Register</a>
-      <button class="buton buton--full buton--show-modal">Connexion</button>
+      <a class="btn btn--form" href="register.php">Register</a>
+      <button class="btn btn--full btn--show-modal">Connexion</button>
     </div>
   </header>
 
@@ -76,7 +76,7 @@
             </select>
           </div>
 
-          <input type="submit" class="buton buton--form" name="signup" value="Sign up now">
+          <input type="submit" class="btn btn--form" name="signup" value="Sign up now">
 
           <!-- <input type="checkbox" />
                 <input type="number" /> -->
@@ -96,7 +96,7 @@
   </footer>
 
   <div class="modal hidden">
-    <button class="buton--close-modal">&times;</button>
+    <button class="btn--close-modal">&times;</button>
     <h2 class="modal__header">
       Connect as an <span class="highlight">Admin</span>
     </h2>
@@ -106,7 +106,7 @@
       <label for="password">Password </label>
       <input type="password" id="password" name="password" />
 
-      <input type="submit" class="buton--login" name="login" value="Login">
+      <input type="submit" class="btn--login" name="login" value="Login">
     </form>
   </div>
   <div class="overlay hidden"></div>
@@ -115,18 +115,18 @@
 
 </html>
 <?php
-$conn = mysqli_connect('localhost','root','', 'gestion_udclubs') or die("Connexion to the DB failed");
+require 'db_config.php';
 if (isset($_POST['signup'])) {
 
   // Data to insert to the db
-  $fullName = $_POST['full-name'];
+  $nom = $_POST['full-name'];
   $email = strtolower($_POST['email']);
   $password = $_POST['password'];
   $filiere = strtoupper($_POST['filiere']);
   $club = $_POST['club'];
 
   try{
-    $query = "INSERT INTO client VALUES ('','$fullName','$email','$password','$filiere','$club')";
+    $query = "INSERT INTO adherrent VALUES ('','$nom','$email','$password','$filiere','$club')";
 
     if (mysqli_query($conn, $query)) {
       // Display a success pop-up message
@@ -134,7 +134,7 @@ if (isset($_POST['signup'])) {
       echo 'Swal.fire("Success!", "Registration successful!", "success");';
       echo '</script>';
   } else {
-      echo "Erreur lors de l'insertion : " . mysqli_error($query);
+      echo "Erreur lors de l'insertion";
   }
 
   } catch(mysqli_sql_exception) {

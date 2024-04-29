@@ -4,8 +4,8 @@ document.getElementById("year").innerHTML = currentYear;
 // Modal
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-const btnOpenModal = document.querySelector(".buton--show-modal");
-const btnCloseModal = document.querySelector(".buton--close-modal");
+const btnOpenModal = document.querySelector(".btn--show-modal");
+const btnCloseModal = document.querySelector(".btn--close-modal");
 
 const openModal = (e) => {
   e.preventDefault();
