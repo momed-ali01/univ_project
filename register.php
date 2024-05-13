@@ -18,6 +18,21 @@
   <link rel="stylesheet" href="./css/components/header.css" />
   <link rel="stylesheet" href="./css/components/footer.css" />
   <link rel="stylesheet" href="./css/styles.css" />
+
+  <style>
+  .toastAlert .swal2-popup {
+    height: 70px;
+    font-size: 17px;
+    /* background: #000; */
+  }
+
+  .modalAlert .swal2-popup {
+    font-size: 15px;
+    /* width: 400px; */
+    /* height: 300px; */
+  }
+  </style>
+
 </head>
 
 <body>
@@ -42,12 +57,17 @@
   <main class="section-cta">
     <div class="cta">
       <div class="cta-text-box">
-        <h2 class="heading-secondary">Register to a club now!</h2>
+        <h2 class="heading-secondary">Rejoignez un club maintenant!</h2>
 
         <form class="cta-form" action="register.php" method="post">
           <div>
-            <label for="full-name">Full Name</label>
-            <input type="text" id="full-name" name="full-name" placeholder="James Bond" required />
+            <label for="first-name">Prénom</label>
+            <input type="text" id="first-name" name="first_name" placeholder="James" required />
+          </div>
+
+          <div>
+            <label for="last-name">Nom</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Bond" required />
           </div>
 
           <div>
@@ -56,30 +76,23 @@
           </div>
 
           <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="James Bond" required />
-          </div>
-
-          <div>
             <label for="filiere">Filière</label>
             <input type="text" id="filiere" name="filiere" placeholder="Informatique" required />
           </div>
 
           <div>
-            <label for="select-where">Which club do you want to integrate?</label>
+            <label for="select-where">Quel club souhaitez-vous intégrer?</label>
             <select id="select-where" name="club" required>
-              <option selected>Please choose one option:</option>
-              <option value="Debate Club">Debate Club</option>
-              <option value="Theater Club">Theater Club</option>
-              <option value="Chess Club">Chess Club</option>
-              <option value="IT Club">IT Club</option>
+              <option selected>Veuillez choisir une option:</option>
+              <?php 
+              require 'db_config.php';
+              $query = mysqli_query($conn, "SELECT * from clubs");
+              while($result = mysqli_fetch_row($query)){ ?>
+              <option value="<?=$result[0]?>"><?=$result[1]?></option>
+              <?php } ?>
             </select>
           </div>
-
-          <input type="submit" class="btn btn--form" name="signup" value="Sign up now">
-
-          <!-- <input type="checkbox" />
-                <input type="number" /> -->
+          <input type="submit" class="btn btn--form" name="signup" value="Inscrivez-vous">
         </form>
       </div>
       <div class="cta-img-box" role="img" aria-label="Woman enjoying food"></div>
@@ -117,37 +130,40 @@
 <?php
 require 'db_config.php';
 if (isset($_POST['signup'])) {
-
-  // Data to insert to the db
-  $nom = $_POST['full-name'];
+  $prenom = $_POST['first_name'];
+  $nom = $_POST['last_name'];
   $email = strtolower($_POST['email']);
-  $password = $_POST['password'];
   $filiere = strtoupper($_POST['filiere']);
   $club = $_POST['club'];
 
-  try{
-    $query = "INSERT INTO adherrent VALUES ('','$nom','$email','$password','$filiere','$club')";
+  $query = "INSERT INTO adherent(prenom, nom, email, filiere, id_club) VALUES ('$prenom','$nom','$email','$filiere','$club')";
 
-    if (mysqli_query($conn, $query)) {
-      // Display a success pop-up message
-      echo '<script>';
-      echo 'Swal.fire("Success!", "Registration successful!", "success");';
-      echo '</script>';
-  } else {
-      echo "Erreur lors de l'insertion";
-  }
-
-  } catch(mysqli_sql_exception) {
-    echo '<script>';
-    echo 'Swal.fire("Error!", "Registration failed!", "error");';
-    // echo 'Swal.fire({
-    //         icon: "error",
-    //         title: "Oops...",
-    //         text: "Something went wrong!"
-    //         text: "Registration failed!"
-    //       });';
-    echo '</script>';
-    // echo 'Error : ' . mysqli_error;
+  if (mysqli_query($conn, $query)) {
+    echo '<script> 
+                Swal.fire({
+                  icon: "success",
+                  title: "Bravo!",
+                  text: "Votre inscription a été réussie!🎉",
+                  timer: 3000,
+                  timerProgressBar: true,
+                  customClass: {
+                    container: "modalAlert",
+                  }
+                })
+          </script>';
+    } else {
+      echo '<script>
+              Swal.fire({
+                icon: "error",
+                title: ""Désolé",
+                text: "Il semble y avoir eu une erreur lors de votre inscription. Veuillez réessayer plus tard. 🛠️",
+                timer: 3000,
+                timerProgressBar: true,
+                customClass: {
+                  container: "modalAlert",
+                }
+              })
+            </script>';
   }
 }
 mysqli_close($conn);

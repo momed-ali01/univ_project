@@ -22,10 +22,10 @@ if(!isset($_SESSION['identifiant_admin'])) {
 
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" href="admin_page.php" aria-current="page">Members</a>
+          <a class="nav-link text-white" href="admin_page.php">Members</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="admin_clubs.php">Clubs</a>
+          <a class="nav-link active" href="admin_clubs.php" aria-current="page">Clubs</a>
         </li>
       </ul>
       <a class="btn btn-primary" href="deconnexion.php">Déconnexion</a>
@@ -40,37 +40,30 @@ if(!isset($_SESSION['identifiant_admin'])) {
         } ?>
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h2>Adhérent des clubs</h2>
-          <a href="./admin_add.php" class="btn btn-outline-primary">Nouveau Adhérent</a>
+          <h2>Liste des Clubs</h2>
+          <a href="./admin_add.php" class="btn btn-outline-primary">Nouveau Club</a>
         </div>
         <div class="card-body">
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Prénom</th>
                 <th>Nom</th>
-                <th>Email</th>
-                <th>Filiere</th>
-                <th>Club Inscrit</th>
+                <th>Description</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <?php require 'db_config.php';
-              $query = "SELECT adherent.id_adh, adherent.prenom, adherent.nom, adherent.email, adherent.filiere, clubs.nom FROM adherent LEFT JOIN clubs ON  adherent.id_club = clubs.id_club";
-              $result = mysqli_query($conn, $query);
+              $result = mysqli_query($conn, "SELECT * FROM clubs");
               while($row=mysqli_fetch_row($result)) { ?>
               <tr>
                 <td><?= $row[0] ?></td>
                 <td><?= $row[1] ?></td>
                 <td><?= $row[2] ?></td>
-                <td><?= $row[3] ?></td>
-                <td><?= $row[4] ?></td>
-                <td><?= $row[5] ?></td>
                 <td>
-                  <a href="admin_update.php?id=<?=$row[0]?>" class="btn btn-success btn-sm">Modifier</a>
-                  <a href="admin_del.php?id=<?=$row[0]?>" class="btn btn-danger btn-sm">Supprimer</a>
+                  <a href="admin_clubs_update.php?id=<?=$row[0]?>" class="btn btn-success btn-sm">Modifier</a>
+                  <a href="admin_clubs_del.php?id=<?=$row[0]?>" class="btn btn-danger btn-sm">Supprimer</a>
                 </td>
               </tr>
               <?php } ?>
