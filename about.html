@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Always include this line of code!!! -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <title>SpaceClubs</title>
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/components/footer.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      .header {
+        position: sticky;
+        top: 0;
+        border-bottom: 3px solid;
+      }
+      .about {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 0 3.2rem;
+        gap: 2rem;
+      }
+
+      .about-text-box {
+        padding: 0 2rem;
+        text-align: justify;
+        max-width: 970px;
+      }
+
+      .about-text-box > h2 {
+        margin-bottom: 1rem;
+        margin-left: 3rem;
+      }
+      .heading-tertiary {
+        margin-bottom: 1.8rem;
+      }
+      .about-links-box {
+        display: flex;
+        flex-direction: column;
+        width: 280px;
+        height: 140px;
+        border-left: 1px solid black;
+        padding-left: 10px;
+        text-wrap: wrap;
+        position: fixed;
+        top: 155px;
+        right: 0;
+      }
+      .about-links-box > a {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      ul.hero-description {
+        margin-left: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">SpaceLogo</a>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a class="main-nav-link" href="index.html">Home</a></li>
+          <li><a class="main-nav-link" href="about.html">About</a></li>
+          <li><a class="main-nav-link" href="contact.html">Contact us</a></li>
+        </ul>
+      </nav>
+      <div class="cta-buttons">
+        <a class="btn btn--form" href="register.php">Register</a>
+        <button class="btn btn--full btn--show-modal">Connexion</button>
+      </div>
+    </header>
+
+    <main class="section-hero">
+      <div class="about">
+        <div class="about-text-box">
+          <h3 class="heading-tertiary" id="introduction">Introduction</h3>
+          <p class="hero-description">
+            Les clubs universitaires sont bien plus que de simples organisations
+            estudiantines. Ils constituent des hubs dynamiques où les passions,
+            les talents et les idées se rencontrent pour créer des expériences
+            enrichissantes et mémorables. À l'université, les clubs offrent un
+            éventail diversifié d'opportunités, des échecs stratégiques au débat
+            d'idées enflammé, du théâtre captivant à l'exploration des cultures
+            du monde, en passant par les dernières innovations technologiques
+            avec le club IT. Chacun de ces clubs apporte une dimension unique à
+            la vie étudiante, offrant aux membres une communauté engagée, des
+            compétences pratiques et des souvenirs inoubliables. Rejoindre un
+            club universitaire, c'est bien plus que s'inscrire à une liste de
+            noms; c'est s'engager dans une aventure stimulante qui enrichit non
+            seulement le parcours académique, mais aussi la vie personnelle de
+            chaque étudiant.
+          </p>
+          <h3 class="heading-tertiary" id="avantages_general">
+            Avantages des clubs universitaires en général :
+          </h3>
+          <p class="hero-description">
+            Les clubs universitaires offrent une multitude d'avantages aux
+            étudiants au-delà des salles de classe. Ces espaces dynamiques sont
+            des incubateurs d'expériences uniques, permettant aux étudiants de
+            développer des compétences précieuses, de tisser des liens
+            significatifs et d'explorer de nouveaux horizons. En rejoignant un
+            club, les étudiants ouvrent les portes vers un monde d'opportunités
+            enrichissantes qui façonnent non seulement leur expérience
+            universitaire, mais aussi leur croissance personnelle.
+          </p>
+          <ul class="hero-description">
+            <li>
+              <strong>Développement des compétences :</strong> Les clubs offrent
+              aux étudiants l'occasion de développer un large éventail de
+              compétences, qu'il s'agisse de leadership, de collaboration, de
+              communication, de résolution de problèmes ou de créativité.
+            </li>
+            <li>
+              <strong>Élargissement du réseau social :</strong> Rejoindre un
+              club permet aux étudiants de rencontrer des personnes partageant
+              les mêmes intérêts, ce qui peut conduire à des amitiés durables, à
+              des collaborations professionnelles et à des opportunités de
+              réseautage.
+            </li>
+            <li>
+              <strong
+                >Équilibre entre la vie universitaire et la vie sociale
+                :</strong
+              >
+              Les clubs offrent un équilibre essentiel entre les études et la
+              vie sociale, permettant aux étudiants de se détendre, de se
+              divertir et de se ressourcer tout en continuant à progresser sur
+              le plan académique.
+            </li>
+            <li>
+              <strong>Exploration de passions et d'intérêts :</strong> Les clubs
+              offrent un espace sûr pour explorer de nouveaux domaines
+              d'intérêt, qu'il s'agisse d'activités artistiques, sportives,
+              académiques ou culturelles.
+            </li>
+            <li>
+              <strong>Opportunités de leadership :</strong> Les clubs offrent
+              aux étudiants la possibilité de prendre des responsabilités de
+              leadership, ce qui leur permet de développer des compétences en
+              gestion, en organisation et en prise de décision.
+            </li>
+          </ul>
+          <h3 class="heading-tertiary" id="avantages_specifiques">
+            Avantages spécifiques de chaque club :
+          </h3>
+          <ul class="hero-description">
+            <li>
+              <strong>Club de Chess :</strong>
+              Développement de la pensée stratégique, amélioration de la
+              concentration et du raisonnement logique.
+            </li>
+            <li>
+              <strong>Club de Débat :</strong>
+              Amélioration des compétences en argumentation, développement de la
+              confiance en soi et de la capacité à défendre ses idées.
+            </li>
+            <li>
+              <strong>Club de Théâtre :</strong>
+              Expression artistique, développement de la créativité,
+              renforcement de la confiance en soi et du travail d'équipe.
+            </li>
+            <li>
+              <strong>Exploration de passions et d'intérêts :</strong> Les clubs
+              offrent un espace sûr pour explorer de nouveaux domaines
+              d'intérêt, qu'il s'agisse d'activités artistiques, sportives,
+              académiques ou culturelles.
+            </li>
+            <li>
+              <strong>Club de Culture :</strong>
+              Exploration des différentes cultures, ouverture d'esprit,
+              renforcement de la tolérance et de la compréhension
+              interculturelle.
+            </li>
+            <li>
+              <strong>Club IT :</strong> Acquisition de compétences techniques,
+              exploration des nouvelles technologies, possibilités de projets
+              pratiques et de collaborations innovantes.
+            </li>
+          </ul>
+        </div>
+        <div class="about-links-box">
+          <a href="#introduction">Introduction</a>
+          <a href="#avantages_general">Avantages des clubs universitaires</a>
+          <a href="#avantages_specifiques"
+            >Avantages spécifiques de chaque club</a
+          >
+          <a href="#introduction">Introduction</a>
+          <a href="#introduction">Introduction</a>
+          <a href="#introduction">Introduction</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Made with 🧡 by
+        <a href="mailto:demahomali01@gmail.com" target="_blank">Mohamed Ali</a>
+        and
+        <a href="mailto:mohamedsoma876@gmail.com" target="_blank"
+          >Mohamed Moumine</a
+        >
+      </p>
+      <p>Copyrights&copy; <span id="year"></span> | Tous droits réservés.</p>
+    </footer>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Connect as an <span class="highlight">Admin</span>
+      </h2>
+      <form class="modal__form" action="connexion_admin.php" method="get">
+        <label for="email">Email </label>
+        <input type="email" id="email" name="email" />
+        <label for="password">Password </label>
+        <input type="password" id="password" name="password" />
+
+        <input type="submit" class="btn--login" name="login" value="Login" />
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

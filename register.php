@@ -38,14 +38,13 @@
 <body>
   <header class="header">
     <div class="logo">
-      <a href="#">SpaceLogo</a>
+      <a href="index.html">SpaceLogo</a>
     </div>
     <nav id="main-nav">
       <ul>
         <li><a class="main-nav-link" href="index.html">Home</a></li>
-        <li><a class="main-nav-link" href="#">About</a></li>
-        <li><a class="main-nav-link" href="#">Testimonials</a></li>
-        <li><a class="main-nav-link" href="#">Contact us</a></li>
+        <li><a class="main-nav-link" href="about.html">About</a></li>
+        <li><a class="main-nav-link" href="contact.html">Contact us</a></li>
       </ul>
     </nav>
     <div class="cta-buttons">

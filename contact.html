@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/components/header.css" />
+    <link rel="stylesheet" href="./css/components/footer.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>UDClubs - Contact</title>
+    <style>
+      .cta {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 160px 1fr;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .cta .heading-secondary {
+        margin-bottom: 1rem;
+      }
+      .content {
+        grid-area: 1 / 1 / 2 / 3;
+        text-align: center;
+      }
+      .cta-text-box {
+        padding: 40px;
+        text-wrap: nowrap;
+        border-radius: 30px;
+        box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+        background: linear-gradient(to right bottom, #eb984e, #e67e22);
+      }
+      .cta-form {
+        grid-template-rows: none;
+        grid-template-columns: none;
+      }
+      .cta-form textarea {
+        width: 100%;
+        padding: 1.2rem;
+        font-size: 1.8rem;
+        font-family: inherit;
+        color: inherit;
+        border: none;
+        background-color: #fdf2e9;
+        border-radius: 9px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        resize: vertical;
+      }
+      .cta-img-box {
+        background: none;
+        margin: 30px 30px 0 0;
+      }
+      .cta-img-box .box {
+        margin: 10px 0;
+      }
+      .box .text h1,
+      .box .text h2 {
+        font-weight: 500px;
+        font-size: 28px;
+      }
+      .box .text p {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="index.html">SpaceLogo</a>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a class="main-nav-link" href="index.html">Home</a></li>
+          <li><a class="main-nav-link" href="about.html">About</a></li>
+          <li><a class="main-nav-link" href="contact.html">Contact us</a></li>
+        </ul>
+      </nav>
+      <div class="cta-buttons">
+        <a class="btn btn--form" href="register.php">Register</a>
+        <button class="btn btn--full btn--show-modal">Connexion</button>
+      </div>
+    </header>
+
+    <main class="section-cta">
+      <div class="cta">
+        <div class="content">
+          <h2 class="heading-secondary">Contactez-nous</h2>
+          <p class="hero-description">
+            Veuillez nous contacter afin de discuter de vos besoins en matière
+            de transport et de logistique. N'hésitez pas à nous faire part de
+            vos commentaires/questions, nous vous contacterons dans les
+            meilleurs délais.
+          </p>
+        </div>
+        <div class="cta-img-box">
+          <div class="box">
+            <div class="text">
+              <h2>Adresse</h2>
+              <p>
+                Rue de Venise, <br />
+                Djibouti,Djibouti, <br />
+                n°45493
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="text">
+              <h1>Numéro de téléphone</h1>
+              <p>21-89-30-67</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="text">
+              <h2>Email</h2>
+              <p>mkiTransport120890@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="cta-text-box">
+          <!-- <h2 class="heading-secondary">Contactez-nous!</h2> -->
+          <form class="cta-form" action="" method="post">
+            <div>
+              <label for="last-name">Nom</label>
+              <input
+                type="text"
+                id="last-name"
+                name="last_name"
+                placeholder="James Bond"
+                required />
+            </div>
+
+            <div>
+              <label for="email">Email </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="me@example.com"
+                required />
+            </div>
+
+            <div>
+              <label for="commentaire">Commentaire</label>
+              <textarea
+                type="text"
+                id="commentaire"
+                name="commentaire"
+                placeholder="Ecriver votre commentaire ici..."
+                required></textarea>
+            </div>
+
+            <input
+              type="submit"
+              class="btn btn--form"
+              name="signup"
+              value="Inscrivez-vous" />
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Made with 🧡 by
+        <a href="mailto:demahomali01@gmail.com" target="_blank">Mohamed Ali</a>
+        and
+        <a href="mailto:mohamedsoma876@gmail.com" target="_blank"
+          >Mohamed Moumine</a
+        >
+      </p>
+      <p>Copyrights&copy; <span id="year"></span> | Tous droits réservés.</p>
+    </footer>
+
+    <div class="modal hidden">
+      <button class="btn--close-modal">&times;</button>
+      <h2 class="modal__header">
+        Connect as an <span class="highlight">Admin</span>
+      </h2>
+      <form class="modal__form" action="connexion_admin.php" method="get">
+        <label for="email">Email </label>
+        <input type="email" id="email" name="email" />
+        <label for="password">Password </label>
+        <input type="password" id="password" name="password" />
+
+        <input type="submit" class="btn--login" name="login" value="Login" />
+      </form>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

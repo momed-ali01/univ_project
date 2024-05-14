@@ -113,6 +113,31 @@ main.section-cta {
 }
 
 /**************************/
+/* ******* About ******** */
+/**************************/
+
+.about {
+  display: flex;
+
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+  gap: 9.6rem;
+  align-items: center;
+  position: relative;
+}
+
+.about-text-box {
+  max-width: 900px;
+}
+
+.about-links-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+/**************************/
 /* ******* Modal ******** */
 /**************************/
 

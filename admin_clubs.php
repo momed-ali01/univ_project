@@ -49,13 +49,13 @@ if(!isset($_SESSION['identifiant_admin'])) {
               <tr>
                 <th>ID</th>
                 <th>Nom</th>
-                <th>Description</th>
+                <th>Nombre d'adherent</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <?php require 'db_config.php';
-              $result = mysqli_query($conn, "SELECT * FROM clubs");
+              $result = mysqli_query($conn, "SELECT clubs.id_club, clubs.nom, COUNT(adherent.id_adh) FROM clubs LEFT JOIN adherent ON clubs.id_club = adherent.id_club GROUP BY clubs.nom ORDER BY clubs.id_club");
               while($row=mysqli_fetch_row($result)) { ?>
               <tr>
                 <td><?= $row[0] ?></td>
