@@ -5,7 +5,7 @@ $id = $_GET['id'];
 $query = "DELETE FROM clubs WHERE id_club = $id";
 
 if (mysqli_query($conn, $query)) {
-  header('Location: admin_page.php?msg=club supprimé avec success');
+  header('Location: admin_clubs.php?msg=club supprimé avec success');
   exit();
 } else {
   echo 'Erreur: ' . mysqli_error($conn);

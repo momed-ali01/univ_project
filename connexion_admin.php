@@ -20,6 +20,7 @@ if (mysqli_num_rows($result) > 0) {
   exit();
 } else {
   echo "<h2>Email ou password incorrecte</h2>";
+  echo "<a href='./index.html'>Retour a la page d'accueuil</a>";
 }
 mysqli_close($conn);
 ?>

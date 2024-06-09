@@ -41,7 +41,7 @@ if(!isset($_SESSION['identifiant_admin'])) {
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h2>Liste des Clubs</h2>
-          <a href="./admin_add.php" class="btn btn-outline-primary">Nouveau Club</a>
+          <a href="./admin_clubs_add.php" class="btn btn-outline-primary">Nouveau Club</a>
         </div>
         <div class="card-body">
           <table class="table table-bordered table-striped">
