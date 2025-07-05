@@ -6,7 +6,12 @@ include 'db_config.php';
 $email = strtolower($_GET['email']);
 $password = $_GET['password'];
 
-$result = mysqli_query($conn,"SELECT * FROM administrateur WHERE email='$email' AND mot_de_passe='$password'");
+// Use prepared statement to prevent SQL injection
+$query = "SELECT * FROM administrateur WHERE email=? AND mot_de_passe=?";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
 if (mysqli_num_rows($result) > 0) {
   // Fetch the first row 
@@ -22,5 +27,6 @@ if (mysqli_num_rows($result) > 0) {
   echo "<h2>Email ou password incorrecte</h2>";
   echo "<a href='./index.html'>Retour a la page d'accueuil</a>";
 }
+mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>

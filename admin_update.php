@@ -14,8 +14,14 @@
 <body>
   <?php require 'db_config.php';
   $id = $_GET['id'];
-  $query = mysqli_query($conn, "SELECT * FROM adherent WHERE id_adh = $id");
-  $row = mysqli_fetch_row($query);
+  // Use prepared statement to prevent SQL injection
+  $query = "SELECT * FROM adherent WHERE id_adh = ?";
+  $stmt = mysqli_prepare($conn, $query);
+  mysqli_stmt_bind_param($stmt, "i", $id);
+  mysqli_stmt_execute($stmt);
+  $result = mysqli_stmt_get_result($stmt);
+  $row = mysqli_fetch_row($result);
+  mysqli_stmt_close($stmt);
   ?>
   <div class="container my-5 ">
     <h2 class="h3 m-0 text-center ">Modifier un adhérent</h2>
@@ -77,14 +83,18 @@ if (isset($_POST['submit'])) {
   $filiere = strtoupper($_POST['filiere']);
   $club = $_POST['club'];
 
- $query = "UPDATE adherent(prenom, nom, email, filiere, id_club) VALUES ('$prenom','$nom','$email','$filiere','$club')";
- $query = "UPDATE `adherent` SET `prenom`='$prenom',`nom`='$nom',`email`='$email',`filiere`='$filiere',`id_club`='$club' WHERE `id_adh`= $id";
-  if (mysqli_query($conn, $query)) {
+  // Use prepared statement to prevent SQL injection
+  $query = "UPDATE `adherent` SET `prenom`=?,`nom`=?,`email`=?,`filiere`=?,`id_club`=? WHERE `id_adh`= ?";
+  $stmt = mysqli_prepare($conn, $query);
+  mysqli_stmt_bind_param($stmt, "ssssii", $prenom, $nom, $email, $filiere, $club, $id);
+  
+  if (mysqli_stmt_execute($stmt)) {
     header('Location: admin_page.php?msg=adhérent modifié avec success');
     exit();
   } else {
     echo 'Erreur: ' . mysqli_error($conn);
   }
+  mysqli_stmt_close($stmt);
 }
 mysqli_close($conn);
 ?>

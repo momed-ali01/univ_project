@@ -1,5 +1,8 @@
 const currentYear = new Date().getFullYear();
-document.getElementById("year").innerHTML = currentYear;
+const yearElement = document.getElementById("year");
+if (yearElement) {
+  yearElement.innerHTML = currentYear;
+}
 
 // Modal
 const modal = document.querySelector(".modal");

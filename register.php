@@ -135,9 +135,12 @@ if (isset($_POST['signup'])) {
   $filiere = strtoupper($_POST['filiere']);
   $club = $_POST['club'];
 
-  $query = "INSERT INTO adherent(prenom, nom, email, filiere, id_club) VALUES ('$prenom','$nom','$email','$filiere','$club')";
+  // Use prepared statement to prevent SQL injection
+  $query = "INSERT INTO adherent(prenom, nom, email, filiere, id_club) VALUES (?, ?, ?, ?, ?)";
+  $stmt = mysqli_prepare($conn, $query);
+  mysqli_stmt_bind_param($stmt, "ssssi", $prenom, $nom, $email, $filiere, $club);
 
-  if (mysqli_query($conn, $query)) {
+  if (mysqli_stmt_execute($stmt)) {
     echo '<script> 
                 Swal.fire({
                   icon: "success",
@@ -164,6 +167,7 @@ if (isset($_POST['signup'])) {
               })
             </script>';
   }
+  mysqli_stmt_close($stmt);
 }
 mysqli_close($conn);
 ?>
