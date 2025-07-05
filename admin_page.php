@@ -35,7 +35,7 @@ if(!isset($_SESSION['identifiant_admin'])) {
   <main>
     <div class="container">
       <?php if(isset($_GET['msg'])){
-            $msg = $_GET['msg'];
+            $msg = htmlspecialchars($_GET['msg'], ENT_QUOTES, 'UTF-8');
             echo "<div class='alert alert-primary my-3 text-uppercase' onclick='this.remove()' role='alert'> $msg </div>";
         } ?>
       <div class="card">
